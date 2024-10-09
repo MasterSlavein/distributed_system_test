@@ -1,0 +1,24 @@
+services:
+  master:
+    build:
+      context: .
+      dockerfile: Dockerfile.master
+    ports:
+      - "8000:8000"
+    depends_on:
+      - secondary1
+      - secondary2
+
+  secondary1:
+    build:
+      context: .
+      dockerfile: Dockerfile.secondary1
+    ports:
+      - "8001:8001"
+
+  secondary2:
+    build:
+      context: .
+      dockerfile: Dockerfile.secondary2
+    ports:
+      - "8002:8002"
